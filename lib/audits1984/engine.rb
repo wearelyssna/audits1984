@@ -20,7 +20,9 @@ module Audits1984
     end
 
     initializer "audits1984.assets.precompile" do |app|
-      app.config.assets.precompile << "audits1984_manifest.js"
+      if app.config.respond_to?(:assets)
+        app.config.assets.precompile << "audits1984_manifest.js"
+      end
     end
   end
 end
